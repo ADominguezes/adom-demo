@@ -2,12 +2,30 @@
 <link rel="import" href="../paper-tabs/paper-tabs.html">
 
 <!--
+
+## adom-demo
+
 `adom-demo`
 is a wrapper for use demos in catalog
 
 Example:
 
-    <adom-demo show-menu option-selected="0" options-menu></adom-demo>
+    <adom-demo id="demo" show-menu option-selected="0" options-menu></adom-demo>
+
+### Data model
+With the property `options-menu` you can use a data model for complete the top menu
+
+For example, given the following data array:
+
+    <script>
+      var menu = [
+        {optionName: 'tab 1'},
+        {optionName: 'tab 2'},
+        {optionName: 'tab 3'}
+      ];
+      var demo = document.getElementById('demo');
+      demo.optionsMenu = menu;
+    </script>
     
 
 @demo demo/index.html 

@@ -6,7 +6,7 @@
 
     <title>adom-demo demo</title>
 
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
     <link rel="import" href="../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../iron-demo-helpers/demo-snippet.html">
@@ -19,12 +19,15 @@
     </style>
   </head>
   <body>
-    <adom-demo id="demo" option-selected="1" options-menu="[{optionName: 'Bob'},{optionName: 'Sally'}]"></adom-demo>
+    <adom-demo id="demo" option-selected="0"></adom-demo>
 
     <script>
       var menu = [
-        {optionName: 'basic'},
-        {optionName: 'Multiple'}
+        {optionName: 'tab 1'},
+        {optionName: 'tab 2'},
+        {optionName: 'tab 3'},
+        {optionName: 'tab 4'},
+        {optionName: 'tab 5'}
       ];
       var demo = document.getElementById('demo');
       demo.optionsMenu = menu;
