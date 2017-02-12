@@ -8,21 +8,26 @@
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../adom-demo.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
+      body {
+        padding:0;
+      }
     </style>
   </head>
   <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic adom-demo demo</h3>
-      <demo-snippet>
-        <template>
-          <adom-demo></adom-demo>
-        </template>
-      </demo-snippet>
-    </div>
+    <adom-demo id="demo" option-selected="1" options-menu="[{optionName: 'Bob'},{optionName: 'Sally'}]"></adom-demo>
+
+    <script>
+      var menu = [
+        {optionName: 'basic'},
+        {optionName: 'Multiple'}
+      ];
+      var demo = document.getElementById('demo');
+      demo.optionsMenu = menu;
+    </script>
   </body>
 </html>

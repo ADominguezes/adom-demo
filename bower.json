@@ -3,7 +3,8 @@
   "description": "wrapper for use demos in catalog",
   "main": "adom-demo.html",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0"
+    "polymer": "Polymer/polymer#^1.4.0",
+    "paper-tabs": "PolymerElements/paper-tabs#^1.8.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
