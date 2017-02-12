@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-tabs/paper-tabs.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
 
 <!--
 
@@ -10,7 +11,7 @@ is a wrapper for use demos in catalog
 
 Example:
 
-    <adom-demo id="demo" option-selected="0" options-menu></adom-demo>
+    <adom-demo id="demo" option-selected="1"></adom-demo>
 
 ### Data model
 With the property `options-menu` you can use a data model for complete the top menu
@@ -53,6 +54,9 @@ For example, given the following data array:
           font-weight: lighter;
         }
       }
+      iron-pages {
+        padding:20px;
+      }
       [hidden] {
         display:none;
       }
@@ -64,6 +68,9 @@ For example, given the following data array:
           <paper-tab>{{item.optionName}}</paper-tab>
         </template>
       </paper-tabs>
+      <iron-pages selected="{{optionSelected}}">
+        <content></content>
+      </iron-pages>
     <div>
   </template>
 
@@ -81,7 +88,8 @@ For example, given the following data array:
          * Array with options menu for show in the menu
          */
         optionsMenu: {
-          type: Array
+          type: Array,
+          notify: true
         },
         /**
          * If showMenu is true, this will check the selected option in the menu
