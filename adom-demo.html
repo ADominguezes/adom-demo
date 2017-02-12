@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`adom-demo`
+wrapper for use demos in catalog
+
+@demo demo/index.html 
+-->
+
+<dom-module id="adom-demo">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'adom-demo',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'adom-demo',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
