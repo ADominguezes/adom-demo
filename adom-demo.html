@@ -10,7 +10,7 @@ is a wrapper for use demos in catalog
 
 Example:
 
-    <adom-demo id="demo" show-menu option-selected="0" options-menu></adom-demo>
+    <adom-demo id="demo" option-selected="0" options-menu></adom-demo>
 
 ### Data model
 With the property `options-menu` you can use a data model for complete the top menu
@@ -35,7 +35,6 @@ For example, given the following data array:
   <template>
     <style>
       :host {
-        display: block;
         --paper-tabs-selection-bar-color: green;
       }
       paper-tabs {
@@ -59,7 +58,7 @@ For example, given the following data array:
       }
 
     </style>
-    <div id="select-demo" hidden$="{{!hideMenu}}">
+    <div id="select-demo" hidden$="[[hideMenu]]">
       <paper-tabs noink selected="{{optionSelected}}">
         <template is="dom-repeat" items="{{optionsMenu}}">
           <paper-tab>{{item.optionName}}</paper-tab>
@@ -73,11 +72,10 @@ For example, given the following data array:
       is: 'adom-demo',
       properties: {
         /**
-         * If true, shows a menu in top of page.
+         * If true, hide the menu in top of page.
          */
-        showMenu: {
-          type: Boolean,
-          value: 'false',
+        hideMenu: {
+          type: Boolean
         },
         /**
          * Array with options menu for show in the menu
