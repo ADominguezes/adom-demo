@@ -38,6 +38,7 @@ For example, given the following data array:
       :host {
         --paper-tabs-selection-bar-color: green;
       }
+      
       paper-tabs {
         --paper-tabs: {
           color: #000;
@@ -48,19 +49,21 @@ For example, given the following data array:
           border-bottom: 1px solid var(--paper-tabs-selection-bar-color)
         }
       }
+      
       paper-tab {
         --paper-tab-content-unselected: {
           color: #999;
           font-weight: lighter;
         }
       }
+      
       iron-pages {
-        padding:20px;
+        padding: 20px;
       }
+      
       [hidden] {
-        display:none;
+        display: none;
       }
-
     </style>
     <div id="select-demo" hidden$="[[hideMenu]]">
       <paper-tabs noink selected="{{optionSelected}}">
@@ -71,7 +74,7 @@ For example, given the following data array:
       <iron-pages selected="{{optionSelected}}">
         <content></content>
       </iron-pages>
-    <div>
+    </div>
   </template>
 
   <script>
@@ -82,7 +85,8 @@ For example, given the following data array:
          * If true, hide the menu in top of page.
          */
         hideMenu: {
-          type: Boolean
+          type: Boolean,
+          value: false
         },
         /**
          * Array with options menu for show in the menu
@@ -98,8 +102,8 @@ For example, given the following data array:
           type: Number
         }
       },
-      attached: function() {
-        if(this.optionSelected > this.optionsMenu.length) {
+      attached: function () {
+        if (this.optionSelected > this.optionsMenu.length) {
           this.optionSelected = 0
         }
       }
