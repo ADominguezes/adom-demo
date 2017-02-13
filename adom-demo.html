@@ -71,10 +71,15 @@ For example, given the following data array:
           <paper-tab>{{item.optionName}}</paper-tab>
         </template>
       </paper-tabs>
+    </div>
+      <template is="dom-if" if="[[!hideMenu]]" >
       <iron-pages selected="{{optionSelected}}">
         <content></content>
       </iron-pages>
-    </div>
+      </template>
+      <template is="dom-if" if="[[hideMenu]]" >
+        <content></content>
+      </template>
   </template>
 
   <script>

@@ -1,52 +1,79 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>adom-demo demo</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <title>adom-demo demo</title>
 
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../adom-demo.html">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <style is="custom-style" include="demo-pages-shared-styles">
-      body {
-        padding:0;
-      }
-    </style>
-  </head>
-  <body>
-    <adom-demo id="demo" option-selected="3" hide-menu>
-      <div>
-        Página 1
-      </div>
-      <div>
-        Página 2
-      </div>
-      <div>
-        Página 3
-      </div>
-      <div>
-        Página 4
-      </div>
-      <div>
-        Página 5
-      </div>
-    </adom-demo>
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../adom-demo.html">
 
-    <script>
-      var menu = [
-        {optionName: 'tab 1'},
-        {optionName: 'tab 2'},
-        {optionName: 'tab 3'},
-        {optionName: 'tab 4'},
-        {optionName: 'tab 5'}
-      ];
-      var demo = document.getElementById('demo');
-      demo.optionsMenu = menu;
-    </script>
-  </body>
+  <style is="custom-style" include="demo-pages-shared-styles">
+    body {
+      padding: 0;
+    }
+    
+    .container-demo {
+      padding: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <adom-demo id="demo" option-selected="3">
+    <div class="container-demo">
+      <demo-snippet>
+        <template>
+          <input type="date">
+        </template>
+      </demo-snippet>
+    </div>
+    <div class="container-demo">
+      <demo-snippet>
+        <template>
+          <input type="text">
+        </template>
+      </demo-snippet>
+    </div>
+    <div class="container-demo">
+      <demo-snippet>
+        <template>
+          <input type="password">
+        </template>
+      </demo-snippet>
+    </div>
+    <div class="container-demo">
+      <demo-snippet>
+        <template>
+          <h1>Hola</h1>
+        </template>
+      </demo-snippet>
+    </div>
+    <div class="container-demo">
+      <demo-snippet>
+        <template>
+          <h3>Adios</h3>
+        </template>
+      </demo-snippet>
+    </div>
+  </adom-demo>
+
+  <script>
+    var menu = [
+      { optionName: 'tab 1' },
+      { optionName: 'tab 2' },
+      { optionName: 'tab 3' },
+      { optionName: 'tab 4' },
+      { optionName: 'tab 5' }
+    ];
+    var demo = document.getElementById('demo');
+    demo.optionsMenu = menu;
+  </script>
+</body>
+
 </html>
