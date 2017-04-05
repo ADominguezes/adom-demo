@@ -7,20 +7,43 @@
 
   <title>adom-demo demo</title>
 
-  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script>
+    window.Polymer = {
+      dom: 'shadow',
+      lazyRegister: 'true',
+      useNativeCSSProperties: 'true'
+    }
 
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  </script>
+
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+  <link rel="import" "../bower_components/adom-demo/adom-demo.html">
   <link rel="import" href="../adom-demo.html">
 
   <style is="custom-style" include="demo-pages-shared-styles">
-    body {
-      padding: 0;
-    }
-    
-    .container-demo {
+    /*Common styles*/
+
+    .component-info {
       padding: 1em;
     }
+
+    .adom-demo {
+      color: #3e3e3e;
+    }
+
+    .component-description {
+      color: #999;
+    }
+
+    demo-snippet {
+      --demo-snippet-demo: {
+        display: block;
+      }
+      ;
+    }
+
   </style>
 </head>
 

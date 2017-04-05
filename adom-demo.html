@@ -1,70 +1,18 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../paper-tabs/paper-tabs.html">
-<link rel="import" href="../iron-pages/iron-pages.html">
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="adom-demo-styles.html">
 
 <!--
-
-## adom-demo
-
 `adom-demo`
-is a wrapper for use demos in catalog
-
-Example:
-
-    <adom-demo id="demo" option-selected="1"></adom-demo>
-
-### Data model
-With the property `options-menu` you can use a data model for complete the top menu
-
-For example, given the following data array:
-
-    <script>
-      var menu = [
-        {optionName: 'tab 1'},
-        {optionName: 'tab 2'},
-        {optionName: 'tab 3'}
-      ];
-      var demo = document.getElementById('demo');
-      demo.optionsMenu = menu;
-    </script>
-    
+A component description
 
 @demo demo/index.html 
 -->
 
 <dom-module id="adom-demo">
+  <style include="adom-demo-styles adom-demo-shared-styles"></style>
   <template>
-    <style>
-      :host {
-        --paper-tabs-selection-bar-color: green;
-      }
-      
-      paper-tabs {
-        --paper-tabs: {
-          color: #000;
-          font-weight: normal;
-          border-bottom: 1px solid #ededed;
-        }
-        --paper-tabs-selection-bar: {
-          border-bottom: 1px solid var(--paper-tabs-selection-bar-color)
-        }
-      }
-      
-      paper-tab {
-        --paper-tab-content-unselected: {
-          color: #999;
-          font-weight: lighter;
-        }
-      }
-      
-      iron-pages {
-        padding: 20px;
-      }
-      
-      [hidden] {
-        display: none;
-      }
-    </style>
     <div id="select-demo" hidden$="[[hideMenu]]">
       <paper-tabs noink selected="{{optionSelected}}">
         <template is="dom-repeat" items="{{optionsMenu}}">
@@ -72,46 +20,15 @@ For example, given the following data array:
         </template>
       </paper-tabs>
     </div>
-      <template is="dom-if" if="[[!hideMenu]]" >
+    <template is="dom-if" if="[[!hideMenu]]">
       <iron-pages selected="{{optionSelected}}">
         <content></content>
       </iron-pages>
-      </template>
-      <template is="dom-if" if="[[hideMenu]]" >
-        <content></content>
-      </template>
-  </template>
+    </template>
+    <template is="dom-if" if="[[hideMenu]]">
+      <content></content>
+    </template>
 
-  <script>
-    Polymer({
-      is: 'adom-demo',
-      properties: {
-        /**
-         * If true, hide the menu in top of page.
-         */
-        hideMenu: {
-          type: Boolean,
-          value: false
-        },
-        /**
-         * Array with options menu for show in the menu
-         */
-        optionsMenu: {
-          type: Array,
-          notify: true
-        },
-        /**
-         * If showMenu is true, this will check the selected option in the menu
-         */
-        optionSelected: {
-          type: Number
-        }
-      },
-      attached: function () {
-        if (this.optionSelected > this.optionsMenu.length) {
-          this.optionSelected = 0
-        }
-      }
-    });
-  </script>
+  </template>
+  <script src="adom-demo.js"></script>
 </dom-module>
