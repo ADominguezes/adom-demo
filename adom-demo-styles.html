@@ -5,7 +5,8 @@
 :host {
   display: block;
   box-sizing: border-box;
-  --paper-tabs-selection-bar-color: green; }
+  --paper-tabs-selection-bar-color: var(--adom-demo-paper-tabs-bar-color, green);
+  @apply (--adom-demo); }
 
 paper-tabs {
   --paper-tabs-color: #000;
@@ -17,8 +18,23 @@ paper-tab {
   --paper-tab-content-unselected-color: #999;
   --paper-tab-content-unselected-font-weight: lighter; }
 
-iron-pages {
-  padding: 20px; }
+.toastContent {
+  padding: 0.5em;
+  color: var(--adom-demo-toast-content-color, green); }
+
+.contentPage {
+  margin: 1em;
+  @apply (--adom-demo-content-page); }
+  .contentPage__info {
+    padding: 1em;
+    @apply (--adom-demo-content-page-info); }
+    .contentPage__info__heading {
+      color: #3e3e3e;
+      text-transform: capitalize;
+      @apply (--adom-demo-content-page-info-heading); }
+    .contentPage__info__description {
+      color: #999;
+      @apply (--adom-demo-content-page-info-description); }
 
 </style>
 </template>

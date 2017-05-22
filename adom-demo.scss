@@ -5,7 +5,8 @@
 :host {
   display: block;
   box-sizing: border-box;
-  --paper-tabs-selection-bar-color: green;
+  --paper-tabs-selection-bar-color: var(--adom-demo-paper-tabs-bar-color, green);
+  @apply(--adom-demo);
 }
 
 paper-tabs {
@@ -26,6 +27,28 @@ paper-tab {
   }
 }
 
-iron-pages {
-  padding: 20px;
+.toastContent {
+  padding:0.5em;
+  color: var(--adom-demo-toast-content-color, green);
 }
+
+.contentPage {
+  margin: 1em;
+  @apply(--adom-demo-content-page);
+  &__info {
+    padding: 1em;
+    @apply(--adom-demo-content-page-info);
+    &__heading {
+      color: #3e3e3e;
+      text-transform: capitalize;
+      @apply(--adom-demo-content-page-info-heading);
+    }
+    &__description {
+      color: #999;
+      @apply(--adom-demo-content-page-info-description);
+    }
+  }
+}
+
+
+
