@@ -19,84 +19,52 @@
 
   <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
-  <link rel="import" "../bower_components/adom-demo/adom-demo.html">
+  <link rel="import" href="../bower_components/adom-header/adom-header.html">
   <link rel="import" href="../adom-demo.html">
 
   <style is="custom-style" include="demo-pages-shared-styles">
     /*Common styles*/
 
-    .component-info {
-      padding: 1em;
-    }
-
-    .adom-demo {
-      color: #3e3e3e;
-    }
-
-    .component-description {
-      color: #999;
-    }
-
     demo-snippet {
       --demo-snippet-demo: {
         display: block;
-      }
-      ;
+      };
     }
 
   </style>
 </head>
 
 <body>
-  <adom-demo id="demo" option-selected="3">
-    <div class="container-demo">
-      <demo-snippet>
-        <template>
-          <input type="date">
-        </template>
-      </demo-snippet>
-    </div>
-    <div class="container-demo">
-      <demo-snippet>
-        <template>
-          <input type="text">
-        </template>
-      </demo-snippet>
-    </div>
-    <div class="container-demo">
-      <demo-snippet>
-        <template>
-          <input type="password">
-        </template>
-      </demo-snippet>
-    </div>
-    <div class="container-demo">
-      <demo-snippet>
-        <template>
-          <h1>Hola</h1>
-        </template>
-      </demo-snippet>
-    </div>
-    <div class="container-demo">
-      <demo-snippet>
-        <template>
-          <h3>Adios</h3>
-        </template>
-      </demo-snippet>
-    </div>
+  <adom-demo id="demo" option-selected="0" toast-events='["click-navigation-button"]'>
+    <demo-snippet id="view0" data-heading="Hello World" data-description="this is a reserved space for a description">
+      <template is="dom-bind">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit sint voluptas laudantium ex saepe deserunt enim dolor officia maxime nam laboriosam accusantium ipsa deleniti dolorem, incidunt iste? Dolor velit, aliquid.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit sint voluptas laudantium ex saepe deserunt enim dolor officia maxime nam laboriosam accusantium ipsa deleniti dolorem, incidunt iste? Dolor velit, aliquid.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit sint voluptas laudantium ex saepe deserunt enim dolor officia maxime nam laboriosam accusantium ipsa deleniti dolorem, incidunt iste? Dolor velit, aliquid.</p>
+      </template>
+    </demo-snippet>
+    <demo-snippet id="view1" data-heading="Toast events" data-description="Click the left icon to show the toast event">
+      <template is="dom-bind">
+        <adom-header heading="Hello world" icon-navigation="menu"></adom-header>
+      </template>
+    </demo-snippet>
+    <demo-snippet id="view2" data-heading="with custom styles" data-description="this is a reserved space for a description">
+      <template is="dom-bind">
+        <style is="custom-style">
+          .text {
+            color: red;
+          }
+          .paragraph {
+            color: green;
+          }
+        </style>
+        <div>
+          <span class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse officiis consequatur aut, mollitia quas enim cum molestias perferendis inventore quisquam nihil fugiat, perspiciatis dolorem, omnis praesentium, veniam possimus vero laborum.</span>
+          <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores impedit a amet, quos in voluptates iusto, non quidem voluptatem soluta reiciendis aperiam, cupiditate, tempora officia inventore sed saepe laudantium!</p>
+        </div>
+      </template>
+    </demo-snippet>
   </adom-demo>
-
-  <script>
-    var menu = [
-      { optionName: 'tab 1' },
-      { optionName: 'tab 2' },
-      { optionName: 'tab 3' },
-      { optionName: 'tab 4' },
-      { optionName: 'tab 5' }
-    ];
-    var demo = document.getElementById('demo');
-    demo.optionsMenu = menu;
-  </script>
 </body>
 
 </html>
