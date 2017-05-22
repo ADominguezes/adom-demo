@@ -1,5 +1,6 @@
 (function () {
   'use strict';
+
   Polymer({
 
     is: 'adom-demo',
@@ -13,24 +14,78 @@
         value: false
       },
       /**
-       * Array with options menu for show in the menu
+       * set the events fired
        */
-      optionsMenu: {
+      toastEvents: {
         type: Array,
-        notify: true
+        value: function() {
+          return [];
+        },
+        notify: true,
       },
       /**
-       * If showMenu is true, this will check the selected option in the menu
+       * set de default word for use in the id of the demos, by default is view
+       */
+      defaultContentId: {
+        type: String,
+        value: 'view'
+      },
+      /**
+       * set the selected option in the menu
        */
       optionSelected: {
-        type: Number
+        type: Number,
+        value: 0,
+        observer: '_computedContent'
+      },
+      _event: {
+        type: Object,
+        value: function() {
+          return {};
+        },
+      },
+      /**
+       * Array with options for show the tabs in the menu
+       */
+      _optionsMenu: {
+        type: Array,
+        value: function() {
+          return [];
+        },
+        notify: true
       }
     },
-    attached: function () {
-      if (this.optionSelected > this.optionsMenu.length) {
+
+    attached: function() {
+      for(var i = 0; i < this.toastEvents.length; i++) {
+        this.addEventListener(this.toastEvents[i], function(e) {
+          this._showToast(e)
+        })
+      }
+    },
+    _setOptionsMenu: function(menu) {
+      this._optionsMenu = menu;
+    },
+
+    _computedContent: function() {
+      if (this.optionSelected > this.children.length) {
         this.optionSelected = 0
       }
-    }
+      var menu=[];
+      for(var i = 0; i<this.children.length; i++) {
+        menu.push({
+          'optionName': this.children[i].getAttribute('data-heading')
+        });
+      }
+      this.$$('#heading').innerHTML = this.children[this.optionSelected].getAttribute('data-heading');
+      this.$$('#description').innerHTML = this.children[this.optionSelected].getAttribute('data-description');
+      this._setOptionsMenu(menu);
+    },
+    _showToast: function(e) {
+      console.log(e)
+      this.$$('#toast').text = e.type;
+      this.$$('#toast').open();
+    },
 
   });
 }());
