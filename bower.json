@@ -1,6 +1,6 @@
 {
   "name": "adom-demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Adom-demo is a component created for to be used in other demo components",
   "main": "adom-demo.html",
   "keywords": [
