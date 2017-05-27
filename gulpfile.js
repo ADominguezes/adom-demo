@@ -15,7 +15,8 @@ var gulp = require('gulp'),
     bower = require('gulp-bower'),
     fs = require('fs'),
     replace = require('gulp-replace'),
-    bower = require('gulp-bower')
+    bower = require('gulp-bower'),
+    superstatic = require('superstatic');
 
 
 
@@ -35,7 +36,7 @@ gulp.task('styles', function () {
 });
 
 /* ======================================================================================================
-* Task for insert estiles en el adom-demo-styles.html
+* Task for insert styles in adom-demo-styles.html
 * ======================================================================================================*/
 gulp.task('styles-replace', ['styles'], function () {
     return gulp.src('./adom-demo-styles.html')
@@ -51,10 +52,23 @@ gulp.task('styles-replace', ['styles'], function () {
 * Task for server component
 * ======================================================================================================*/
 gulp.task('serve', ['styles-replace', 'styles', 'watch'], function () {
+    var mw = [
+    function(req, res, next) {
+      if ((req.url.indexOf('/bower_components') !== 0) && (req.url !== '/') && (req.url !== '/demo/index.html') && (req.url !== '/adom-demo.html') && (req.url !== '/adom-demo.js') && (req.url !== '/adom-demo-styles.html')) {
+        req.url = 'bower_components' + req.url;
+      }
+      return superstatic({config: {root: 'bower_components', clean: true}})(req,res,next);
+    },
+  ];
     browserSync.init({
         injectChanges: true,
         files: ['./*.{html, scss}', './demo/index.html', './adom-demo.js', './dist/css/adom-demo.css'],
-        server: "./",
+        notify: true,
+        server: {
+          baseDir: "./",
+          directory: false,
+          middleware: mw
+        }
     });
 });
 
