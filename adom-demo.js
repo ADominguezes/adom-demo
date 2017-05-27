@@ -82,7 +82,6 @@
       this._setOptionsMenu(menu);
     },
     _showToast: function(e) {
-      console.log(e)
       this.$$('#toast').text = e.type;
       this.$$('#toast').open();
     },
