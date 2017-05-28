@@ -10,7 +10,7 @@ app.get('/about', middleware.requireAuthentication, function(request, response) 
     response.send('about');
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname));
 
 app.listen(PORT, function() {
     console.log('Express Server started on port ' + PORT);
