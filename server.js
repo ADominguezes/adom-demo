@@ -1,9 +1,13 @@
 var express = require('express');
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = 8080;
 
-app.get('/', function(request, response) {
-    response.send('hello express');
+var middleware= require('./middleware.js')
+
+app.use(middleware.logger);
+
+app.get('/about', middleware.requireAuthentication, function(request, response) {
+    response.send('about');
 });
 
 app.use(express.static(__dirname + '/public'));
